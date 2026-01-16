@@ -1,0 +1,23 @@
+*.txt
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# PHP
+/vendor/
+composer.phar
+.env
+.phpunit.result.cache
+.agent/*
+
+# Database
+database.sqlite
+*.sqlite
+
+# Backups
+*.bak
+*.log
