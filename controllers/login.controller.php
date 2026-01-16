@@ -1,5 +1,5 @@
 <?php
-require "Validacao.php";
+require __DIR__ . "/../Validacao.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email = $_POST['email'];
   $senha = $_POST['senha'];
@@ -30,4 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 view('login');
-false;
