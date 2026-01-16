@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if ($usuario && password_verify($senha, $usuario->senha)) {
     $_SESSION['auth'] = $usuario;
     flash()->push('mensagem', 'Seja bem-vindo(a) ' . $usuario->nome . '!');
-    header("location: /");
+    header("location: /dashboard");
     exit();
   } else {
     flash()->push('validacoes', ["email" => ["Usuário ou senha incorretos"]]);

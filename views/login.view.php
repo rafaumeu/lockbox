@@ -18,6 +18,11 @@
         <div class="card">
           <div class="card-body">
             <div class="card-title">Faça o seu login</div>
+            <?php if ($mensagem = flash()->get('mensagem')): ?>
+              <div role="alert" class="alert">
+                <?= $mensagem ?>
+              </div>
+            <?php endif; ?>
             <label class="form-control w-full">
               <div class="label">
                 <span class="label-text text-black">Email</span>
@@ -30,11 +35,16 @@
                 </div>
               <?php endif; ?>
             </label>
-            <label class="form-control w-full">
+            <label class="form-control w-full" x-data="{show: false}">
               <div class="label">
                 <span class="label-text text-black">Senha</span>
               </div>
-              <input type="password" name="senha" class="input input-bordered w-full max-w-xs bg-white border-gray-200">
+              <div class="relative max-w-xs">
+                <input :type="show ? 'text' : 'password'" type="password" name="senha" class="input input-bordered w-full max-w-xs bg-white border-gray-200">
+                <button type="button" @click="show = !show" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+                  <i class="ph ph-eye text-black text-xl" :class="show ? 'ph-eye-closed' : 'ph-eye'"></i>
+                </button>
+              </div>
               <div class="mt-1 text-xs text-error">
                 <?php if (isset($validacoes['senha'])) : ?>
                   <?= $validacoes['senha'][0] ?>
