@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   ], $_POST);
 
   if ($validacao->naoPassou()) {
-    header('location: /login');
+    view('login');
     exit();
   }
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("location: /");
     exit();
   } else {
-    flash()->push('validacoes_login', ["Usuário ou senha incorretos"]);
+    flash()->push('validacoes', ["email" => ["Usuário ou senha incorretos"]]);
   }
 }
 view('login');

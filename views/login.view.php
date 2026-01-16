@@ -12,7 +12,9 @@
   <div class="bg-white hero mr-40 min-h-screen text-black">
     <div class="hero-content -mt-20">
       <form method="post" action="/login">
-        <?php $validacoes = flash()->get('validacoes'); ?>
+        <?php
+        $validacoes = flash()->get('validacoes');
+        ?>
         <div class="card">
           <div class="card-body">
             <div class="card-title">Faça o seu login</div>
@@ -20,7 +22,7 @@
               <div class="label">
                 <span class="label-text text-black">Email</span>
               </div>
-              <input type="text" name="email" class="input input-bordered w-full max-w-xs bg-white border-gray-200">
+              <input type="text" value="<?= old('email') ?>" name="email" class="input input-bordered w-full max-w-xs bg-white border-gray-200">
 
               <?php if (isset($validacoes['email'])) : ?>
                 <div class="mt-1 text-xs text-error">
