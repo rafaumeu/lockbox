@@ -13,7 +13,8 @@
 </head>
 
 <body>
-  <?php require "../views/{$view}.view.php" ?>
+  <?php require base_path("views/{$view}.view.php") ?>
+  <?php require base_path('views/partials/_mensagem.view.php') ?>
 </body>
 
 </html>

@@ -12,7 +12,7 @@ class IndexController
     if (!$notaSelecionada =  $this->getNotaSelecionada($notas)) {
       return view('notas/nao-encontrada');
     }
-    return view('notas', data: [
+    return view('notas/index', data: [
       'notas' => $notas,
       'notaSelecionada' => $notaSelecionada
     ]);
