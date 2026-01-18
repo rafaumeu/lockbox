@@ -7,4 +7,4 @@ spl_autoload_register(function ($class) {
 require "../App/Models/Usuario.php";
 session_start();
 
-require "../routes.php";
+require base_path('config/routes.php');
