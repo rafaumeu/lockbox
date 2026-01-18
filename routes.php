@@ -1,12 +1,17 @@
 <?php
-$path = parse_url($_SERVER["REQUEST_URI"])["path"];
-$controller = str_replace("/", "", $path);
-if (!$controller) $controller = 'index';
-$controllerFile = "../controllers/{$controller}.controller.php";
 
+use App\Controllers\DashboardController;
+use App\Controllers\IndexController;
+use App\Controllers\LoginController;
+use App\Controllers\LogoutController;
+use App\Controllers\RegisterController;
+use Core\Route;
 
-if (!file_exists($controllerFile)) {
-  abort(404);
-}
-
-require $controllerFile;
+(new Route())
+  ->get('/', IndexController::class)
+  ->get('/login', [LoginController::class, 'index'])
+  ->post('/login', [LoginController::class, 'login'])
+  ->get('/dashboard', DashboardController::class)
+  ->get('/logout', LogoutController::class)
+  ->get('/registrar', [RegisterController::class, 'index'])
+  ->post('/registrar', [RegisterController::class, 'register'])->run();

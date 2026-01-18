@@ -8,6 +8,7 @@ class Route
 
   public function addRoute($httpMethod, $uri, $controller)
   {
+
     if (is_string($controller)) {
       $data = [
         'class' => $controller,
@@ -25,6 +26,7 @@ class Route
   }
   public function get($uri, $controller)
   {
+
     $this->addRoute('GET', $uri, $controller);
     return $this;
   }
