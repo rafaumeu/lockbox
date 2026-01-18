@@ -9,7 +9,7 @@ class RegisterController
 {
   public function index()
   {
-    return view('registrar');
+    return view('registrar', 'guest');
   }
   public function register()
   {
