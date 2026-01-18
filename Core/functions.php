@@ -4,11 +4,11 @@ function base_path($path = "")
 {
   return __DIR__ . '/../' . $path;
 }
-function view($viewName, $data = [])
+function view($viewName, $template = 'app', $data = [])
 {
   extract($data);
   $view = $viewName;
-  require base_path("views/template/app.php");
+  require base_path("views/template/{$template}.php");
 }
 function dd(...$dump)
 {
