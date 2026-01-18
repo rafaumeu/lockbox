@@ -34,6 +34,10 @@ function flash()
   return new \Core\Flash;
 }
 
+function redirect($uri)
+{
+  return header("location: $uri");
+}
 
 function config($chave = null)
 {
