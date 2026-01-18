@@ -1,9 +1,11 @@
 <?php
-require __DIR__ . "/../Validacao.php";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $DB = new \Core\Database(config('database'));
+
   $email = $_POST['email'];
   $senha = $_POST['senha'];
-  $validacao = Validacao::validar([
+  $validacao = \Core\Validacao::validar([
     'email' => ['required', 'email'],
     'senha' => ['required']
   ], $_POST);
@@ -15,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $usuario = $DB->query(
     query: "select * from usuarios where email = :email",
-    class: Usuario::class,
+    class: \App\Models\Usuario::class,
     params: [
       'email' => $email,
     ]

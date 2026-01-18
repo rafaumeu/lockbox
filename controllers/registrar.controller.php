@@ -1,7 +1,9 @@
 <?php
-require __DIR__ . "/../Validacao.php";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $validacao = Validacao::validar([
+  $DB = new \Core\Database(config('database'));
+
+  $validacao = \Core\Validacao::validar([
     'nome' => ['required'],
     'email' => ['required', 'email', 'confirmed', 'unique:usuarios'],
     'senha' => ['required', 'min:8', 'max:30', 'strong'],

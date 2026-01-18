@@ -42,13 +42,8 @@
               <div class="label">
                 <span class="label-text text-black">Confirme o seu email</span>
               </div>
-              <input type="text" value="<?= old('email_confirmacao') ?>" name="email_confirmacao" class="input input-bordered w-full max-w-xs bg-white border-gray-200"
-                x-model="senha">
-              <?php if (isset($validacoes['email'])) : ?>
-                <div class="mt-1 text-xs text-error">
-                  <?= $validacoes['email'][0] ?>
-                </div>
-              <?php endif; ?>
+              <input type="text" value="<?= old('email_confirmacao') ?>" name="email_confirmacao" class="input input-bordered w-full max-w-xs bg-white border-gray-200">
+
             </label>
             <label class="form-control w-full"
               x-data="{
