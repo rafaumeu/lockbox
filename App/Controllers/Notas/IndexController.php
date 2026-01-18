@@ -8,18 +8,20 @@ class IndexController
 {
   public function __invoke()
   {
-    $pesquisar = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '';
-    $notas = Nota::all($pesquisar);
-    $id = isset($_GET['id']) ? $_GET['id'] : (sizeof($notas) > 0 ? $notas[0]->id : null);
-
-    $filter = array_filter($notas, fn($n) => $n->id == $id);
-    $notaSelecionada = array_pop($filter);
-    if (!$notaSelecionada) {
+    $notas = Nota::all(pesquisar: request()->get('pesquisar', null));
+    if (!$notaSelecionada =  $this->getNotaSelecionada($notas)) {
       return view('notas/nao-encontrada');
     }
     return view('notas', data: [
       'notas' => $notas,
       'notaSelecionada' => $notaSelecionada
     ]);
+  }
+  private function getNotaSelecionada($notas)
+  {
+    $id = request()->get('id', (sizeof($notas) > 0 ? $notas[0]->id : null));
+
+    $filter = array_filter($notas, fn($n) => $n->id == $id);
+    return array_pop($filter);
   }
 }
