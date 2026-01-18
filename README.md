@@ -1,26 +1,47 @@
 # LockBox 🔒
 
-A secure and organized way to manage your books and reviews. Built with PHP, SQLite, and a modern frontend.
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/alpinejs-%238BC0D0.svg?style=for-the-badge&logo=alpine.js&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+
+A secure and organized way to manage your private notes, receipts, and documents. Built with PHP, SQLite, and a modern frontend.
 
 ## 🚀 Features
 
-- **Book Management**: Add, update, and organize your library.
-- **Reviews**: Rate and review your readings.
-- **Search**: Quickly find books in your collection.
-- **Secure**: Validation and security best practices implemented.
+- **Digital Vault**: Securely store and organize your important notes and receipts.
+- **Privacy First**: Designed to keep your sensitive data protected.
+- **Quick Search**: Instantly retrieve any document or note.
+- **Secure Authentication**: Robust login and registration system with session management.
+- **Custom MVC Architecture**: Built from scratch with a custom Router and Autoloader (PSR-4 style).
 
 ## 🛠 Tech Stack
 
-- **Backend**: Native PHP 8+
+- **Backend**: Native PHP 8.3+ (Class-based Controllers, Custom Routing)
 - **Database**: SQLite
-- **Frontend**: TailwindCSS (Hybrid approach)
-- **Architecture**: MVC (Model-View-Controller)
+- **Frontend**: TailwindCSS + DaisyUI 5
+- **Interactivity**: Alpine.js
+- **Icons**: Phosphor Icons
+
+## 📂 Project Structure
+
+```bash
+lockbox/
+├── App/                # Application Logic
+│   ├── Controllers/    # Class-based Controllers
+│   └── Models/         # Data Models
+├── Core/               # Framework Core (Router, DB, Validator)
+├── config/             # Configuration files (Database, Routes)
+├── public/             # Entry point (index.php)
+└── views/              # UI Templates
+```
 
 ## 📦 Installation
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/your-username/lockbox.git
+    git clone https://github.com/rocketseat-education/php-lockbox.git
     cd lockbox
     ```
 
@@ -39,7 +60,7 @@ Contributions are welcome! Please check the [CONTRIBUTING.md](CONTRIBUTING.md) f
 
 1.  Fork the project
 2.  Create your feature branch (`git checkout -b feat/AmazingFeature`)
-3.  Commit your changes (`git commit -m 'feat(scope): Add some AmazingFeature'`)
+3.  Commit your changes (`git commit -m 'feat(scope): add some AmazingFeature'`)
 4.  Push to the branch (`git push origin feat/AmazingFeature`)
 5.  Open a Pull Request
 
