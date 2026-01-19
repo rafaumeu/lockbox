@@ -48,10 +48,21 @@ class Nota
       ], $nota ? ['nota' => $nota] : [])
     );
   }
+  public static function create($data)
+  {
+    $db = new Database(config('database'));
+    $db->query(
+      query: "INSERT INTO notas (titulo, nota, usuario_id, data_criacao, data_atualizacao) VALUES (:titulo, :nota, :usuario_id, :data_criacao, :data_atualizacao)",
+      params: array_merge($data, [
+        'data_criacao' => date('Y-m-d H:i:s'),
+        'data_atualizacao' => date('Y-m-d H:i:s')
+      ])
+    );
+  }
   public function nota()
   {
     if (session()->get('mostrar')) {
-      return $this->nota;
+      return decrypt($this->nota);
     }
     return str_repeat('*', rand(10, 100));
   }
