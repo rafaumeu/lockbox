@@ -26,7 +26,7 @@
       <div class="label">
         <span class="label-text">Sua nota</span>
       </div>
-      <textarea name="nota" class="textarea textarea-bordered h-24 w-full <?= $validacoes['nota'] ? 'textarea-error' : '' ?>" placeholder="Escreva sua nota aqui..."><?= $notaSelecionada->nota ?></textarea>
+      <textarea <?php if (!session()->get('mostrar')): ?> disabled <?php endif; ?> name="nota" class="textarea textarea-bordered h-24 w-full <?= $validacoes['nota'] ? 'textarea-error' : '' ?>" placeholder="Escreva sua nota aqui..."><?= $notaSelecionada->nota() ?></textarea>
       <?php if ($validacoes['nota']): ?>
         <div class="mt-1 text-xs text-error"><?= $validacoes['nota'][0] ?></div>
       <?php endif; ?>
@@ -35,7 +35,7 @@
   <div class="flex justify-between items-center">
     <form action="/nota" method="POST">
       <input type="hidden" name="__method" value="DELETE">
-      <input type="hidden" name="id" value="<?= $notaSelecionada->id ?>">
+      <input type="hidden" name="id" value="<?= $notaSelecionada->nota() ?>">
       <button type="submit" class="btn btn-error">Deletar</button>
     </form>
     <button class="btn btn-primary" type="submit" form="form-atualizacao">Atualizar</button>

@@ -35,14 +35,24 @@ class Nota
   }
   public static function update($id, $titulo, $nota)
   {
+    $set = "titulo = :titulo";
+    if ($nota) {
+      $set .= ", nota = :nota";
+    }
     $db = new Database(config('database'));
     $db->query(
-      query: "UPDATE notas SET titulo = :titulo, nota = :nota WHERE id = :id",
-      params: [
+      query: "UPDATE notas SET $set WHERE id = :id",
+      params: array_merge([
         'titulo' => $titulo,
-        'nota' => $nota,
         'id' => $id
-      ]
+      ], $nota ? ['nota' => $nota] : [])
     );
+  }
+  public function nota()
+  {
+    if (session()->get('mostrar')) {
+      return $this->nota;
+    }
+    return str_repeat('*', rand(10, 100));
   }
 }
