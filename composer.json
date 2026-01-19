@@ -1,0 +1,19 @@
+{
+    "name": "rafael/lock_box",
+    "authors": [
+        {
+            "name": "Rafael Dias Zendron",
+            "email": "mmmarckos@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "App\\": "App/"
+        },
+        "files": [
+            "./Core/functions.php"
+        ]
+    }
+}
