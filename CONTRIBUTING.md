@@ -28,18 +28,28 @@ git checkout -b fix/annoying-bug
 - **Security**: Ensure all user inputs are validated and sanitized.
 
 ### 4. Commit Your Changes
-We follow the **Conventional Commits** specification.
+We follow a strict **Conventional Commits** specification with a detailed body.
 
+**Structure:**
+```text
+<type>(<scope>): <short summary>
+
+- <detailed bullet point>
+- <detailed bullet point>
+- <detailed bullet point>
+```
+
+**Types:**
 - `feat`: A new feature
 - `fix`: A bug fix
 - `docs`: Documentation only changes
 - `style`: Changes that do not affect the meaning of the code (white-space, formatting, etc)
 - `refactor`: A code change that neither fixes a bug nor adds a feature
-- `chore`: Maintenance tasks
+- `chore`: Maintenance tasks, dependencies, etc.
 
 **Example:**
 ```bash
-git commit -m "feat(auth): implement password recovery"
+git commit -m "feat(auth): implement password recovery" -m "- Add ForgotPasswordController" -m "- Create password reset view" -m "- Configure email notification service"
 ```
 
 ### 5. Push and Open a Pull Request
