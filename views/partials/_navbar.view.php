@@ -5,9 +5,15 @@
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
       <li>
-        <a href="/mostrar">
-          <i class="ph ph-eye"></i>
-        </a>
+        <?php if (session()->get('mostrar')): ?>
+          <a href="/esconder">
+            <i class="ph ph-eye"></i>
+          </a>
+        <?php else: ?>
+          <a href="/mostrar">
+            <i class="ph ph-eye-closed"></i>
+          </a>
+        <?php endif; ?>
       </li>
       <li>
         <details>

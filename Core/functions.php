@@ -67,5 +67,10 @@ function old($campo)
 
 function request()
 {
-  return new \Core\Request;
+  return new \Core\Request();
+}
+
+function session()
+{
+  return new \Core\Session();
 }

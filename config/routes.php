@@ -8,6 +8,7 @@ use App\Controllers\Notas;
 use App\Controllers\Notas\AtualizarController;
 use App\Controllers\Notas\CriarController;
 use App\Controllers\Notas\DeletarController;
+use App\Controllers\Notas\VisualizarController;
 use App\Middlewares\AuthMiddleware;
 use App\Middlewares\GuestMiddleware;
 use Core\Route;
@@ -24,4 +25,6 @@ use Core\Route;
   ->post('/notas/criar', [CriarController::class, 'store'], AuthMiddleware::class)
   ->put('/nota', [AtualizarController::class, 'update'], AuthMiddleware::class)
   ->delete('/nota', [DeletarController::class, 'delete'], AuthMiddleware::class)
+  ->get('/mostrar', [VisualizarController::class, 'mostrar'], AuthMiddleware::class)
+  ->get('/esconder', [VisualizarController::class, 'esconder'], AuthMiddleware::class)
   ->run();
