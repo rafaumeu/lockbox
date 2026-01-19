@@ -6,7 +6,6 @@
             "email": "mmmarckos@gmail.com"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
@@ -15,5 +14,11 @@
         "files": [
             "./Core/functions.php"
         ]
+    },
+    "require-dev": {
+        "laravel/pint": "^1.27"
+    },
+    "require": {
+        "nesbot/carbon": "^3.11"
     }
 }

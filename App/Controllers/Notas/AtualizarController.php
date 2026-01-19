@@ -1,30 +1,30 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Controllers\Notas;
 
 use App\Models\Nota;
-use Core\Database;
 use Core\Validacao;
 
 class AtualizarController
 {
-  public function update()
-  {
+    public function update()
+    {
+        $validacao = Validacao::validar(array_merge([
+            'titulo' => ['required', 'min:3', 'max:255'],
+            'id'     => ['required'],
+        ], session()->get('mostrar') ? ['nota' => ['required']] : []), request()->all());
 
-    $validacao = Validacao::validar(array_merge([
-      'titulo' => ['required', 'min:3', 'max:255'],
-      'id' => ['required']
-    ], session()->get('mostrar') ? ['nota' => ['required']] : []), request()->all());
-
-    if ($validacao->naoPassou()) {
-      return redirect('/notas?id=' . request()->post('id'));
+        if ($validacao->naoPassou()) {
+            return redirect('/notas?id=' . request()->post('id'));
+        }
+        Nota::update(
+            request()->post('id'),
+            request()->post('titulo'),
+            request()->post('nota')
+        );
+        flash()->push('mensagem', 'Nota atualizada com sucesso');
+        redirect('/notas');
     }
-    Nota::update(
-      request()->post('id'),
-      request()->post('titulo'),
-      request()->post('nota')
-    );
-    flash()->push('mensagem', 'Nota atualizada com sucesso');
-    redirect('/notas');
-  }
 }

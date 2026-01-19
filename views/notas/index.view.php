@@ -6,6 +6,8 @@
       <?php if ($nota->id === $notaSelecionada->id): ?>bg-base-200<?php endif; ?>
       ">
       <?= $nota->titulo ?>
+      <br>
+      <span class="text-xs">id: <?= $nota->id ?> || criado <?= $nota->dataCriacao()->locale('pt_BR')->diffForHumans() ?> || atualizado <?= $nota->dataAtualizacao()->locale('pt_BR')->diffForHumans() ?></span>
     </a>
   <?php endforeach; ?>
 </div>
@@ -26,7 +28,7 @@
       <div class="label">
         <span class="label-text">Sua nota</span>
       </div>
-      <textarea <?php if (!session()->get('mostrar')): ?> disabled <?php endif; ?> name="nota" class="textarea textarea-bordered h-24 w-full <?= $validacoes['nota'] ? 'textarea-error' : '' ?>" placeholder="Escreva sua nota aqui..."><?= $notaSelecionada->nota() ?></textarea>
+      <textarea <?php if (! session()->get('mostrar')): ?> disabled <?php endif; ?> name="nota" class="textarea textarea-bordered h-24 w-full <?= $validacoes['nota'] ? 'textarea-error' : '' ?>" placeholder="Escreva sua nota aqui..."><?= $notaSelecionada->nota() ?></textarea>
       <?php if ($validacoes['nota']): ?>
         <div class="mt-1 text-xs text-error"><?= $validacoes['nota'][0] ?></div>
       <?php endif; ?>
