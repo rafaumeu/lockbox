@@ -14,16 +14,15 @@ class LoginController
   }
   public function login()
   {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $email = request()->post('email');
+    $senha = request()->post('senha');
     $validacao = Validacao::validar([
       'email' => ['required', 'email'],
       'senha' => ['required']
-    ], $_POST);
+    ], request()->all());
 
     if ($validacao->naoPassou()) {
-      view('login', 'guest');
-      exit();
+      return view('login', 'guest');
     }
     $DB = new Database(config('database'));
     $usuario = $DB->query(
@@ -37,7 +36,7 @@ class LoginController
       flash()->push('validacoes', ["email" => ["Usuário ou senha incorretos"]]);
       return view('login', 'guest');
     }
-    $_SESSION['auth'] = $usuario;
+    session()->set('auth', $usuario);
     flash()->push('mensagem', 'Seja bem-vindo(a) ' . $usuario->nome . '!');
     return redirect('/notas');
   }

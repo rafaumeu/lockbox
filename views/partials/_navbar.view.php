@@ -10,7 +10,7 @@
             <i class="ph ph-eye"></i>
           </a>
         <?php else: ?>
-          <a href="/mostrar">
+          <a href="/confirmar">
             <i class="ph ph-eye-closed"></i>
           </a>
         <?php endif; ?>

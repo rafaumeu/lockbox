@@ -114,3 +114,8 @@ function decrypt($input)
 
   return false;
 }
+function env($chave, $default = null)
+{
+  $env = parse_ini_file(base_path('.env'));
+  return $env[$chave] ?? $default;
+}

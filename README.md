@@ -15,6 +15,26 @@ A secure and organized way to manage your private notes, receipts, and documents
 - **Quick Search**: Instantly retrieve any document or note.
 - **Secure Authentication**: Robust login and registration system with session management.
 - **Custom MVC Architecture**: Built from scratch with a custom Router and Autoloader (PSR-4 style).
+- **Encryption**: Two-layer encryption (AES-256-CBC + HMAC SHA3-512) for sensitive note content.
+
+## ⚙️ Configuration
+
+1.  **Environment Setup**
+    Copy the example environment file:
+    ```bash
+    cp .env.example .env
+    ```
+
+2.  **Generate Encryption Keys**
+    You **MUST** generate unique keys to secure your application. Run the following command in your terminal:
+    ```bash
+    # Generate First Key (32 bytes)
+    php -r "echo base64_encode(openssl_random_pseudo_bytes(32));"
+
+    # Generate Second Key (64 bytes)
+    php -r "echo base64_encode(openssl_random_pseudo_bytes(64));"
+    ```
+    Paste the outputs into your `.env` file for `ENCRYPT_FIRST_KEY` and `ENCRYPT_SECOND_KEY`.
 
 ## 🛠 Tech Stack
 
