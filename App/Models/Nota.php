@@ -26,4 +26,23 @@ class Nota
       )
     )->fetchAll(PDO::FETCH_CLASS, self::class);
   }
+  public static function delete($id)
+  {
+    $db = new Database(config('database'));
+    $db->query("DELETE FROM notas WHERE id = :id", params: [
+      'id' => $id
+    ]);
+  }
+  public static function update($id, $titulo, $nota)
+  {
+    $db = new Database(config('database'));
+    $db->query(
+      query: "UPDATE notas SET titulo = :titulo, nota = :nota WHERE id = :id",
+      params: [
+        'titulo' => $titulo,
+        'nota' => $nota,
+        'id' => $id
+      ]
+    );
+  }
 }

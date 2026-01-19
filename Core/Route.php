@@ -42,6 +42,11 @@ class Route
     $this->addRoute('PUT', $uri, $controller, $middleware);
     return $this;
   }
+  public function delete($uri, $controller, $middleware = null)
+  {
+    $this->addRoute('DELETE', $uri, $controller, $middleware);
+    return $this;
+  }
   public function run()
   {
     $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
