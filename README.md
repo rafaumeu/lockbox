@@ -109,3 +109,12 @@ Contributions are welcome! Please check the [CONTRIBUTING.md](CONTRIBUTING.md) f
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<div align="center">
+Made with ❤️ by Rafael Dias Zendron
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafael-dias-zendron-528290132/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rafaumeu)
+</div>
